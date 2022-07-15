@@ -1,0 +1,23 @@
+.table-responsive{
+        max-height: 300px;
+}
+
+.container {
+        opacity: 0.7;
+}
+
+.close_btn {
+        text-align: right;
+}
+.dialog_background {
+    overflow: visible;
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url("../../assets/img/display.jpg");
+    width: 100%;
+    height: auto;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+}

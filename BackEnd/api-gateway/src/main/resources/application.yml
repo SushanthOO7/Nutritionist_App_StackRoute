@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: food-client
+          uri: http://localhost:9001/
+          predicates:
+            - Path=/api/v1/food/**
+        - id: USER-CLIENT
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/user/**
+
+  application:
+    name: API-GATEWAY
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+
+server:
+  port: 9095
+

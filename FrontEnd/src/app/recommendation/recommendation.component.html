@@ -1,0 +1,20 @@
+<div class="recommendation_background">
+    <div class="container">
+        <div class="row my-5 mx-0" *ngIf=persistService.brands>
+          <h3>Recommended Food Brands</h3>
+        </div>
+        <!-- <div class="m-5"><strong>{{persistService.brands[0]}}</strong></div> -->
+        <div class="card-columns m-4">
+            <div class="card bg-dark text-white" *ngFor="let each of persistService.brands">
+                <div *ngIf=each class="card-body">
+                    <div class="card-title"><strong>{{each}}</strong></div>
+                 <button class="btn btn-danger" [routerLink]="['/brandRecommendation', each]">View Recommendations</button>
+                      
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+    

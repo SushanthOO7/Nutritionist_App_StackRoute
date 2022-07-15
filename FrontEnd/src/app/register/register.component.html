@@ -1,0 +1,70 @@
+<div class="register_background container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-8 col-lg-5 mt-lg-5 ml-lg-5">
+            <mat-card class="register_container card">
+                <mat-card-header class="card-title">
+                    <mat-card-title>User Registration</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-body">
+                    <form [formGroup]='registerForm' #formDirective='ngForm' (ngSubmit)='registerSubmit(formDirective)'>
+                        <div class="form-group">
+                            <h6><b>Name:</b></h6>
+                            <mat-form-field class="col-auto" appearance='outline'>
+                                <mat-label>Enter your name here</mat-label>
+                                <input matInput type='text' [formControl]='new_name'>
+                                <mat-error *ngIf="new_name.invalid && (new_name.touched || new_name.dirty)">
+                                    *Mandatory
+                                </mat-error>
+                            </mat-form-field>
+                            <h6><b>Email:</b></h6>
+                            <mat-form-field class="col-auto" appearance='outline'>
+                                <mat-label>Enter your Email Id here</mat-label>
+                                <input matInput type='text' [formControl]='new_email'>
+                                <mat-error *ngIf="new_email.invalid">
+                                    *Check email format
+                                </mat-error>
+                            </mat-form-field>
+                            <h6><b>Username:</b></h6>
+                            <mat-form-field class="col-auto" appearance='outline'>
+                                <mat-label>Your Username for the app</mat-label>
+                                <input matInput type='text' [formControl]='new_username'>
+                                <mat-error *ngIf="new_username.invalid && (new_username.touched || new_username.dirty)">
+                                    *Mandatory
+                                </mat-error>
+                            </mat-form-field>
+                            <h6><b>Password:</b></h6>
+                            <mat-form-field class="col-auto" appearance='outline'>
+                                <mat-label>Enter your Password here</mat-label>
+                                <input matInput type='password' [formControl]='new_password'>
+                                <mat-error *ngIf="new_password.hasError('minlength')">
+                                    *Minimun length of 8 characters
+                                </mat-error>
+                                <mat-error *ngIf="new_password.hasError('required')">
+                                    *Mandatory
+                                </mat-error>
+                            </mat-form-field>
+                            <h6><b>Confirm Password:</b></h6>
+                            <mat-form-field class="col-auto" appearance='outline'>
+                                <mat-label>Re-Enter your Password here</mat-label>
+                                <input matInput type='password' [formControl]='confirm_password'>
+                                <mat-error *ngIf="confirm_password.hasError('minlength')">
+                                    *Minimun length of 8 characters
+                                </mat-error>
+                                <mat-error *ngIf="confirm_password.hasError('required')">
+                                    *Mandatory
+                                </mat-error>
+                            </mat-form-field>
+                            
+                            <button class="btn btn-danger" mat-button type="submit" [disabled]='!registerForm.valid'>Register</button>
+                            <br><br>
+                            <div style="text-align: center;">
+                                <button class="btn btn-danger" [routerLink]="['/login']">Already Registered!</button>  
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+

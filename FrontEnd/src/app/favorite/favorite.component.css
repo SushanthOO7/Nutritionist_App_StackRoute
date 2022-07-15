@@ -1,0 +1,93 @@
+.favorite_background {
+    overflow-y: hidden;
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url("../../assets/img/N5.jpg");
+    width: 100%;
+    /* height: auto; */
+	/* position: fixed; */
+	background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.category_view {
+    overflow-y: auto;
+    height: 100%;
+    /* position: relative; */
+}
+.card {
+	opacity: 0.8;
+	padding: 1em;
+}
+
+.pagination {
+    text-align: left;
+}
+
+.card {
+	opacity: 0.8;
+    /* width: 300px; */
+    /* height: auto; */
+	display: inline-block;
+	margin: 1rem;
+	border-radius: 4px;
+	box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 0 1px 2px 0 rgba(0,0,0,.2);
+	transition: all .2s ease;
+	/* background: #fff; */
+	position: relative;
+	/* overflow: hidden; */
+}	
+.card:hover, .hover {
+		transform: translateY(-4px);
+		box-shadow: 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25);
+}		
+.card.card-content {
+	box-shadow: inset 0 3px 0 0 #ccb65e;
+	border-color: #ccb65e;
+}
+
+.card-content {
+	width: 100%;
+	min-height: 104px;
+	background-color: #fff;
+	border-top: 1px solid #E9E9EB;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	padding: 1rem 2rem;
+	transition: all .2s ease;
+}	
+.card-content a {
+	text-decoration: none;
+	color: white;
+}
+
+.card-content h2, a h2 {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.card-content p, a p {
+	font-size: .8rem;
+	font-weight: 400;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: white;
+}
+
+h3{
+    color: black;
+}
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: white; /*replace with your color*/
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: red;  /*replace with your color*/
+}
+mat-slide-toggle{
+	color: black;
+}

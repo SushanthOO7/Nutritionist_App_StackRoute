@@ -1,0 +1,114 @@
+table{
+  /* padding:2em;  */
+  width:100% ;
+  opacity: 0.9;
+  /* overflow-y: scroll; */
+}
+
+
+/* .table_container {
+   overflow-y: auto;
+   position: absolute;
+   height: 100%;
+} */
+
+.display_background{
+   /* position: fixed; */
+   overflow-y: hidden;
+   min-width: 100%;
+   min-height: 100%;
+   background-image: url("../../assets/img/f.jpg");
+   width: 100%;
+   height: auto;
+       
+   /* Set up positioning */
+   /* position: fixed; */
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: center;
+   background-size: cover;
+
+} 
+
+th.mat-header-cell {
+   
+}
+
+.card:hover .card--hover a, .card:hover {
+   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+ }
+ 
+ body {
+   background-color: #ecfaff;
+   padding: 60px;
+   font-family: "Nunito", sans-serif;
+   display: flex;
+   flex-direction: row;
+   -webkit-flex-flow: row wrap;
+ }
+ 
+ .card {
+   -webkit-box-flex: 300px;
+   -ms-flex: 300px;
+   flex: 300px;
+   margin: 20px;
+   border-radius: 10px;
+   border: 2px solid #c3c6ce;
+   cursor: pointer;
+   position: relative;
+   transition: 0.5s ease;
+ }
+ .card:hover {
+   border-color: #008bf8;
+ }
+ .card:hover .card--hover {
+   opacity: 1;
+ }
+ .card:hover .card--hover a {
+   -webkit-transform: translate(-50%, 50%);
+   -ms-transform: translate(-50%, 50%);
+   transform: translate(-50%, 50%);
+   opacity: 1;
+ }
+ .card--hover {
+   padding: 60px 0;
+   text-align: center;
+   opacity: 0.6;
+   transition: 0.25s ease;
+ }
+ .card--hover h3 {
+   font-size: 30px;
+   font-weight: bold;
+   margin: 0;
+ }
+ .card--hover p {
+   margin: 10px 0 0;
+ }
+ .card--hover a {
+   -webkit-transform: translate(-50%, 125%);
+   -ms-transform: translate(-50%, 125%);
+   transform: translate(-50%, 125%);
+   border-radius: 20px;
+   background-color: #008bf8;
+   color: #fff;
+   padding: 8px 16px;
+   display: inline-block;
+   text-decoration: none;
+   position: absolute;
+   left: 50%;
+   bottom: 0;
+   opacity: 0;
+   transition: 0.25s ease;
+ }
+ .card.card--dark {
+   background-color: #1a1a1a;
+   border-color: #1a1a1a;
+ }
+ .card.card--dark .card--hover {
+   color: #fff;
+ }
+ .card.card--dark a {
+   background-color: #d9534f;
+   color: #fff;
+ }

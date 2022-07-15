@@ -1,0 +1,17 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    font-family: 'Asap', sans-serif;
+    /* overflow: hidden; */
+    
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    text-align: left;
+    background: rgb(245, 209, 6); 
+    font-weight: bolder;  
+  }
+

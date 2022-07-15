@@ -1,0 +1,46 @@
+
+.register_background{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url("../../assets/img/mon.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+
+} 
+
+.register_container {
+    margin-top:2em;
+    margin-bottom: 2em;
+    padding: 2.5em;
+    opacity: 0.8;
+} 
+
+.register_container:hover {
+    opacity: 1.0;
+}
+
+.mat-card-content, .mat-card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-form-field {
+    padding: 0 1em;
+    width: 100%;
+    min-width: 300px;
+    color: grey;
+}
+
+button {
+    width:100%;  
+}
+h6{
+    min-width: 300px;
+    padding: 0 1em;
+}
+mat-card-title{
+    font-weight: bold;
+}

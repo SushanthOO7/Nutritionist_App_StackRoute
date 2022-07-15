@@ -1,0 +1,140 @@
+<div class="container-fluid search_result_background">
+    <div *ngIf=persistService.searchResult>
+        <div class="col mt-5">
+            <div style="text-align: center;"><h3>Food Nutrition</h3></div>
+            
+        <div class="container-fluid px-1 px-md-2 px-lg-4 py-5 mx-auto">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-9 col-sm-11">
+                    <div class="card border-0">
+                        <form [formGroup]='filterForm'>
+                            <div class="row">
+                                <div class="card bg-dark text-white" style="opacity:1" >
+                                    <div id="filterBox" style="padding: 25px;">
+                                <div class="fields"><h6><b>🍔 Food:</b></h6>
+                                <input class="form-control" style="background-color: white; color: black;" matInput type="text" [formControl]="generalSearch" placeholder="Type here"></div>
+                                <div class="fields"><h6><b>🍴 Ingredients:</b></h6> 
+                                <input class="form-control" style="background-color: white; color: black;" matInput type=text [formControl]="ingredients" placeholder="Type here"></div>
+                                <div class="fields"><h6><b>📺 Brand:</b></h6>
+                                <input class="form-control" style="background-color: white; color: black;" matInput type=text [formControl]="brandOwner" placeholder="Type here"></div>
+                                <button class="btn btn-danger px-4 m-2" (click)="filterSearch()">Show</button>
+                                <button class="btn btn-danger px-4 m-2" (click)="resetSearch()">Clear</button>
+                                <br>
+                                <div class="fields"><h6><b>SORT CRITERIA: </b></h6>
+                                    <select class="custom-select my-3"[formControl]="sortField" (click)="sort()">
+                                        <option value="" disabled selected>Select criteria</option>
+                                        <option value="publishedDate">Published Date</option>
+                                        <option value="lowercaseDescription.keyword">Description</option>
+                                        <option value="dataType.keyword">Data Type</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="fields" *ngIf=sortSelected>
+                                    <h6><b>SORT DIRECTION:</b></h6>
+                                    <button mat-button (click)=sortDirec() class="mb-2" >
+                                        <mat-icon>sort_by_alpha</mat-icon>
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row justify-content-center">
+                <!-- <div class="table_container" *ngIf="this.persistService.searchResult; else elseBlock"> -->
+                    <div class="table_container" *ngIf="this.persistService.searchResult"> 
+                    <table class="table table-responsive-md table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Brand</th>
+                                <th>Published Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let each of persistService.searchResult | paginate:{itemsPerPage: 15, currentPage:p};">
+                                <td>
+                                    <a (click)=fetchNutrients(each.fdcId)>
+                                        <button class="btn btn-danger">{{each.description}}</button>
+                                    </a>
+                                </td>
+                                <td>{{each.dataType}}</td>
+                                <td>{{each.brandOwner}}</td>
+                                <td>{{each.publishedDate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="m-3"> 
+                        <pagination-controls class="my-pagination" (pageChange)="p=$event" previousLabel="Previous Page"
+                        nextLabel="Next Page"></pagination-controls>
+                    </div>
+                </div>
+                <div *ngIf=empty style="text-align:right">
+                    <h3>No result found</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- 
+
+<div *ngIf=this.persistService.searchResult>
+    <div></div>
+    <div>
+        <form [formGroup]='filterForm'>
+            Search: <input type="text" [formControl]="generalSearch">
+            Ingredients: <input type=text [formControl]="ingredients">
+            Brand Owner: <input type=text [formControl]="brandOwner">
+
+            <div>
+                Required All words: <input type="checkbox" value=true [formControl]="required" [checked]="this.required_val">
+            </div>
+            <button (click)="filterSearch()">Filter</button>
+            <button (click)="resetSearch()">Reset</button>
+        </form>
+    </div>
+    <br><br>
+    Sort Criteria:
+    <select [formControl]="sortField" (click)="sort()">
+        <option value="" disabled selected>Select criteria</option>
+        <option value="publishedDate">Published Date</option>
+        <option value="lowercaseDescription.keyword">Description</option>
+        <option value="dataType.keyword">Data Type</option>
+    </select>
+    <div *ngIf=sortSelected>
+        Sort Direction:
+        <button mat-button (click)=sortDirec() >
+            <mat-icon>sort_by_alpha</mat-icon>
+        </button>
+    </div> -->
+    
+    <!-- Sort direction:
+    <mat-button-toggle-group name="sortDirection">
+        <mat-button-toggle value="asc">Ascending</mat-button-toggle>
+        <mat-button-toggle value="desc">Descending</mat-button-toggle>
+    </mat-button-toggle-group> -->
+    
+    <!-- <br><br>
+    <div *ngFor="let each of this.persistService.searchResult | paginate:{itemsPerPage: 10, currentPage:p};" >
+        <h3>{{each.description}}</h3>
+        <button (click)="fetchNutrients(each.fdcId)">Details</button>
+        <h6>{{each.additionalDescription}}</h6>
+        <h5>Publised Date: {{each.publishedDate}}</h5>
+        <h5>Brand Owner: {{each.brandOwner}}</h5>
+        <h5>Data Type: {{each.dataType}}</h5>
+    </div>
+    
+    <div> 
+        <pagination-controls style="text-align:right;" (pageChange)="p=$event"></pagination-controls>
+    </div>
+</div> -->
+
+
+<!-- <app-display [fdcId]="fdcId"></app-display> -->
+

@@ -1,0 +1,23 @@
+.search_result_background {
+  overflow-y: hidden;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url("../../assets/img/f.jpg");
+  width: 100%;
+  height: auto;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.fields{
+padding: 10px;
+}
+
+.search-container{
+opacity: 0.8;
+
+}

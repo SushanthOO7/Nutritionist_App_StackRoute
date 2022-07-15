@@ -1,0 +1,19 @@
+<div class="brand_recommendation_background">
+    <div class="container" *ngIf=persistService.brandRecommendation>
+        <div class="card-columns mt-5">
+            <div class="card" *ngFor="let each of persistService.brandRecommendation | paginate:{itemsPerPage: 13, currentPage:p};">
+                <div class="card-content">
+                    <h5 *ngIf=each.description>{{each.description |titlecase}}</h5>
+                    <p *ngIf=each.brandOwner>{{each.brandOwner}}</p>
+                    <div class="card-footer">
+                        <a (click)="fetchNutrients(each.fdcId)" class="btn btn-link">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-pagination m-4"> 
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+    </div>
+</div>
+

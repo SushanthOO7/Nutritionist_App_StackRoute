@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="close_btn"> 
+        <button mat-button (click)="dialogRef.close()">
+            <mat-icon>highlight_off</mat-icon>
+        </button>
+    </div>
+
+<div *ngIf=persistService.selectedFood>
+    <div style="text-align: center;">
+    <strong>{{persistService.selectedFood.description}}</strong>
+    
+    <div *ngIf=persistService.selectedFood.brandedFoodCategory>Food Category: {{persistService.selectedFood.brandedFoodCategory}}</div>
+    <div *ngIf=persistService.selectedFood.brandOwner>Brand: {{persistService.selectedFood.brandOwner}}</div>
+    <div *ngIf=persistService.selectedFood.dataType>Type: {{persistService.selectedFood.dataType}}</div>
+    <!-- <div *ngIf=persistService.selectedFood.ingredients>Ingredients: {{persistService.selectedFood.ingredients}}</div> -->
+    <div *ngIf=persistService.selectedFood.scientificName>Scientific Name: {{persistService.selectedFood.scientificName</div>
+    </div>
+    <div *ngIf=persistService.selectedFood.foodNutrients>
+        <div class="table-responsive text-nonwrap">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Derived By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let each of persistService.selectedFood.foodNutrients">
+                    <td scope="row">{{each.name}}</td>
+                    <td scope="row">{{each.amount}}</td>
+                    <td scope="row">{{each.unitName}}</td>
+                    <td scope="row">{{each.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,55 @@
+<body>
+  <h1 *ngIf="!authService.isUserLoggedIn()" style="color:black; background-color: aliceblue;"><marquee direction="right" 
+        behavior="alternate" 
+        style="border:whitesmoke 2px SOLID ; align-content:center;" >
+
+        TEAM CODE PANACHE
+    </marquee></h1>
+     
+  <h1 *ngIf="!authService.isUserLoggedIn()"style="color:black; background-color: aliceblue;"><marquee direction="right" 
+    behavior="alternate" 
+    style="border:whitesmoke 2px SOLID ; align-content:center;">KNOW BETTER OF WHAT YOU EAT</marquee></h1>
+    <h1 *ngIf="authService.isUserLoggedIn()"style="color:black; background-color: aliceblue;"><marquee direction="right" 
+      behavior="alternate" 
+      style="border:whitesmoke 2px SOLID ; align-content:center;">Welcome to the Nutrionist App</marquee></h1>
+  <div class="container">
+
+    <div id="content">
+      <br><br>
+      <form class='form-inline'  (submit)="fetch()">
+        <div *ngIf="authService.isUserLoggedIn()" class="input-group">
+          <input type='text' id='search' class="form-control search-form"  placeholder="Search Food"
+          [(ngModel)]="generalSearch"
+          name="generalSearch">
+          <span class="input-group-btn" style="width:39px">
+            <button id="search-this"type="submit" class="pull-right btn btn-default search-btn">
+                <fa-icon [icon]="faSearch" ></fa-icon>
+            </button>
+          </span>
+        </div>
+        
+      </form>        
+  </div>
+  
+</div>
+<footer *ngIf="!authService.isUserLoggedIn()" class="mainfooter" role="contentinfo">
+  <div class="footer-middle">
+    <div class="container" style="padding-top: 15px;">
+      <div class="footer-pad">
+        
+          <img id="wipro" src="assets/img/Wipro-logo.jpg" alt="wipro" height="60">
+          <img id="stack" src="assets/img/stackroute.jpg" alt="stack" height="60">
+          <a href="https://github.com/SushanthOO7/Nutritionist_App_StackRoute" target="_blank">
+            <img id="git" src="assets/img/git.png"  alt="stack" height="60">
+          </a>
+          
+          <p>&copy;CODE PANACHE <span>Nutritionist App</span></p>
+          <p>Github Link:</p>
+          <p style="color: black;">.</p>
+          
+        
+      </div>
+    </div> 
+  </div>
+</footer>
+</body>

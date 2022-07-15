@@ -1,0 +1,72 @@
+<div class="favorite_background container-fluid">
+    <div *ngIf="empty; else notEmpty">
+        No Favorites selected
+    </div>
+    <ng-template #notEmpty>
+    <!-- <div class="container-fluid"> -->
+        <div class="row my-4 mx-4">
+            <h3>Favorite Food Items</h3>
+        </div>
+        
+        <div style="color:white" class="row toggle_row justify-content-start mt-5 ml-5 ">
+            <mat-slide-toggle (change)=byCategory()>
+                BRAND WISE
+            </mat-slide-toggle>
+        </div>
+    <!-- </div> -->
+    
+    <div *ngIf="categorise; else elseBlock">
+    <div class="category_view ">
+        <div *ngFor="let brand of categories">
+            <div class="m-5" style="color:white"><strong>{{brand[0].brandOwner}}</strong></div>
+            <div class="card-columns m-4">
+                <div class="card bg-dark text-white" *ngFor="let each of brand">
+                    <div class="card-body">
+                        <div class="card-title" *ngIf=each.description><strong>{{each.description}}</strong></div>
+                        <!-- <div *ngIf=each.brandOwner>Brand Owner: {{each.brandOwner}}</div> -->
+                        <div *ngIf=each.dataType>Data Type: {{each.dataType}}</div>
+                        <div *ngIf=each.brandedFoodCategory>Branded Food Category: {{each.brandedFoodCategory}}</div>
+                        <div *ngIf=each.scientificName>Scientific Name: {{each.scientificName}}</div>
+                    </div>
+                            <button class="btn btn-danger"  (click)='viewDetails(each.fdcId)'>View Details</button>
+                        
+                   
+                </div>
+            </div>
+            <!-- <div class="pagination"> 
+                <pagination-controls id="brand-pagination" class="my-pagination" style="text-align:right;" (pageChange)="p=$event"></pagination-controls>
+            </div> -->
+            <hr>
+
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div *ngIf=persistService.favoriteFood>
+        <!-- <div class="container-fluid"> -->
+        <div class="card-deck m-4 general_view">
+            <div class="card col-lg-3 bg-dark text-white" *ngFor="let foodDetails of persistService.favoriteFood | paginate:{itemsPerPage: 5, currentPage:p};">
+                <div class="card-body">
+                    <div class="card-title" *ngIf=foodDetails.description><strong>{{foodDetails.description}}</strong></div> 
+                    <div *ngIf=foodDetails.brandOwner>{{foodDetails.brandOwner}}</div>
+                    <div *ngIf=foodDetails.dataType>Data Type: {{foodDetails.dataType}}</div>
+                    <div *ngIf=foodDetails.brandedFoodCategory>Branded Food Category: {{foodDetails.brandedFoodCategory}}</div>
+                    <div *ngIf=foodDetails.scientificName>Scientific Name: {{foodDetails.scientificName}}</div>
+                </div>
+                <!-- <div class="card-footer"> -->
+                    <div style="text-align: center;">
+                    <button class="btn btn-danger" (click)='viewDetails(foodDetails.fdcId)'>Details</button>
+                    <span style="padding: 80px;"></span>
+                    <button class="btn btn-danger" (click)='deleteFavorite(foodDetails.fdcId)'>Delete</button>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <!-- </div> -->
+        <div class="pagination"> 
+            <pagination-controls class="my-pagination" style="text-align:right;" (pageChange)="p=$event"></pagination-controls>
+        </div>
+    </div>
+</ng-template>
+</ng-template>
+</div>
